@@ -36,13 +36,13 @@ streamlit run app.py
 
 ## 📊 Outputs
 
-- **Predicted Rating** — XGBoost regression prediction with star display and tier badge
+- **Predicted Rating** — Random Forest Regression prediction with star display and tier badge
 - **Competition Table** — Top 5 similar apps via cosine similarity on category, installs, price, and reviews
 
 ---
 
 ## 🛠 Tech Stack
 
-- **Model** : XGBoost Regressor (trained on Google Play Store dataset)
+- **Model** : Random Forest Regressor (trained on Google Play Store dataset)
 - **Recommendation** : Cosine Similarity (scikit-learn)
 - **UI** : Streamlit with custom dark-theme CSS
