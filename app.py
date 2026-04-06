@@ -5,7 +5,7 @@ import joblib
 import os
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from sklearn.metrics.pairwise import cosine_similarity
-from xgboost import XGBRegressor
+from sklearn.ensemble import RandomForestRegressor
 
 # ─── Page Config ─────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -245,15 +245,15 @@ def load_data_and_models():
     df["Category_enc"] = le_cat.fit_transform(df["Category"].astype(str))
     df["Content_enc"] = le_con.fit_transform(df["Content Rating"].astype(str))
 
-    # ── Train XGBoost ──
+    # ── Train Random Forest Regressor ──
     features = ["Category_enc", "Reviews", "Size", "Installs", "Type_enc", "Content_enc"]
     df_model = df.dropna(subset=features + ["Rating"])
     X = df_model[features].fillna(0)
     y = df_model["Rating"]
 
-    model = XGBRegressor(n_estimators=200, learning_rate=0.05,
-                         max_depth=5, subsample=0.8,
-                         colsample_bytree=0.8, random_state=42)
+    model = RandomForestRegressor(n_estimators=200,
+                         max_depth=5,
+                         random_state=42)
     model.fit(X, y)
 
     # ── Recommendation Matrix ──
