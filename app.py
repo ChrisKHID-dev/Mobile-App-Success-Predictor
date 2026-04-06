@@ -373,7 +373,7 @@ with left_col:
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown(f"""
     <span class="badge">📊 {len(df_raw):,} apps in training data</span>
-    <span class="badge">🤖 XGBoost Regressor</span>
+    <span class="badge">🤖 RandomForestRegressor</span>
     <span class="badge">📈 6 features</span>
     """, unsafe_allow_html=True)
 
@@ -447,6 +447,6 @@ with right_col:
 st.divider()
 st.markdown("""
 <div style="text-align:center;color:#484f58;font-size:0.78rem;padding:0.5rem 0 1rem;">
-    Built with XGBoost · Google Play Store Dataset · Streamlit
+    Built with RandomForestRegressor · Google Play Store Dataset · Streamlit
 </div>
 """, unsafe_allow_html=True)
